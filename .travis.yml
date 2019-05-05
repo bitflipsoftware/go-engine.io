@@ -1,12 +1,7 @@
-sudo: false
 language: go
-env:
-  - GO111MODULE=on
-go:
-  - master
-  - tip
+go: 1.5
 install:
-  - go get
+  - go get "github.com/smartystreets/goconvey/convey"
+  - go get -v .
 script:
-  - make test
-  - ./gosweep.sh
+  - go test -race -v ./...
